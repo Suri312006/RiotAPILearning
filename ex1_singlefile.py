@@ -35,7 +35,7 @@ class LolPipeline(PipelineConf):
         },
         {
             "backend": "pyot.stores.riotapi.RiotAPI",
-            "api_key": "RGAPI-8b628776-cf20-4e47-b066-5f90c5810327",
+            "api_key": os.environ["RIOT_API_KEY"],
         }
     ]
 
