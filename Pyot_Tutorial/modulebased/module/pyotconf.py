@@ -29,6 +29,6 @@ class LolPipeline(PipelineConf):
         },
         {
             "backend": "pyot.stores.riotapi.RiotAPI",
-            "api_key": "RGAPI-0cf4bdb0-e932-49ee-a309-8e8d266ce6a4", #need to update daily
+            "api_key": os.environ["RIOT_API_KEY"],  # need to update daily in environment variables
         }
     ]
