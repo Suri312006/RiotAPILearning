@@ -4,7 +4,8 @@ import statistics
 from pyot.core.queue import Queue
 from pyot.models import lol
 from pyot.core.resources import resource_manager
-
+from pyot.conf.pipeline import pipelines
+from pyot.utils.runners import loop_run
 
 async def get_matches(summoner, number=10):
     """
@@ -46,3 +47,7 @@ async def average_match_duration_millis(summoner_name: str):
     first_5_matches = await get_matches(summoner, 5)
     return statistics.mean([match.info.duration_millis for match in first_5_matches] or [0])
     # After exiting scope, resources are released for this event loop
+
+async def clear_cache_lol():
+    lol_pipeline = pipelines["lol"]
+
